@@ -1,4 +1,6 @@
-﻿function ConvertTo-Json20([object] $item){
+﻿#低版本powershell无法使用convert-json命令，以下为该命令的替代
+
+function ConvertTo-Json20([object] $item){
     add-type -assembly system.web.extensions
     $ps_js=new-object system.web.script.serialization.javascriptSerializer
     return $ps_js.Serialize($item)
